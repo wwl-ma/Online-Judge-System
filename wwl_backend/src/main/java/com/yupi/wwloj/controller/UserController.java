@@ -26,8 +26,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
@@ -53,7 +51,6 @@ import static com.yupi.wwloj.service.impl.UserServiceImpl.SALT;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-@Api(tags = "用户管理")
 public class UserController {
 
     @Resource
@@ -70,7 +67,6 @@ public class UserController {
      * @param userRegisterRequest
      * @return
      */
-    @ApiOperation("用户注册")
     @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
         if (userRegisterRequest == null) {
@@ -93,7 +89,6 @@ public class UserController {
      * @param request
      * @return
      */
-    @ApiOperation("用户登录")
     @PostMapping("/login")
     public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
         if (userLoginRequest == null) {
@@ -111,7 +106,6 @@ public class UserController {
     /**
      * 用户登录（微信开放平台）
      */
-    @ApiOperation("用户登录微信平台")
     @GetMapping("/login/wx_open")
     public BaseResponse<LoginUserVO> userLoginByWxOpen(HttpServletRequest request, HttpServletResponse response,
             @RequestParam("code") String code) {
@@ -138,7 +132,6 @@ public class UserController {
      * @param request
      * @return
      */
-    @ApiOperation("用户注销")
     @PostMapping("/logout")
     public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
         if (request == null) {

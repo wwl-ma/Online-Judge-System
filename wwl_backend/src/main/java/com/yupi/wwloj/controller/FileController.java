@@ -35,7 +35,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/file")
 @Slf4j
-@Api(tags = "文件控制")
 public class FileController {
 
     @Resource
@@ -52,7 +51,6 @@ public class FileController {
      * @param request
      * @return
      */
-    @ApiOperation("文件上传")
     @PostMapping("/upload")
     public BaseResponse<String> uploadFile(@RequestPart("file") MultipartFile multipartFile,
             UploadFileRequest uploadFileRequest, HttpServletRequest request) {

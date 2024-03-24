@@ -22,7 +22,9 @@
       </a-menu>
     </a-col>
     <a-col flex="100px">
-      <div>{{ store.state.user?.loginUser?.userName ?? "未登录" }}</div>
+      <div>
+        {{ store.state.user?.loginUser?.userName ?? "未登录" }}
+      </div>
     </a-col>
   </a-row>
 </template>
@@ -39,7 +41,6 @@ const router = useRouter();
 const store = useStore();
 
 // 展示在菜单的路由数组
-// eslint-disable-next-line no-undef
 const visibleRoutes = computed(() => {
   return routes.filter((item, index) => {
     if (item.meta?.hideInMenu) {
@@ -57,6 +58,7 @@ const visibleRoutes = computed(() => {
 
 // 默认主页
 const selectedKeys = ref(["/"]);
+
 // 路由跳转后，更新选中的菜单项
 router.afterEach((to, from, failure) => {
   selectedKeys.value = [to.path];
@@ -70,6 +72,7 @@ setTimeout(() => {
     userRole: ACCESS_ENUM.ADMIN,
   });
 }, 3000);
+
 const doMenuClick = (key: string) => {
   router.push({
     path: key,
@@ -86,8 +89,6 @@ const doMenuClick = (key: string) => {
 .title {
   color: #444;
   margin-left: 16px;
-  font-family: 楷体;
-  font-size: 30px;
 }
 
 .logo {
