@@ -10,7 +10,7 @@ git push -u origin main
 现有库
 git add .
 git commit -m "message"
-git push origin master
+git push origin main
 
 
 如果出现了
